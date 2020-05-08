@@ -1,0 +1,40 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="tabs-underlined">
+      <h3 class="top-bar-dons text-center tab-underlined active relationships">Mon profil</h3>
+      </div>
+      <div class="user-header col-12 pt-5">
+        <%= cl_image_tag(@user.avatar, height: 150, width: 150, crop: :fill, gravity: :face, class: "user-avatar") %>
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
+      </div>
+      <div class="donation-p col-12 text-center ">
+        <div class="stats" id="text-stat">
+          <% if @user.donations.count == 0 %>
+            <p>N'hésite pas à donner !</p>
+          <% elsif @user.donations.count == 1 %>
+            <p>1 don effectué ! Continue comme ça !</p>
+          <% else @user.donations.count >= 2 %>
+            <p><%= @user.donations.count %> dons effectués !</p>
+          <% end %>
+        </div>
+        <div class="text-center-params-user">
+          <div class="btn-params-user">
+            <%= link_to("Modifier mon compte", edit_user_registration_path) %>
+          </div>
+          <div class="btn-del-user">
+            <%= link_to("Supprimer mon compte", edit_user_registration_path) %>
+          </div>
+        </div>
+      </div>
+      <div class="donation-p col-12">
+        <div class="form-actions pt-3">
+          <%= link_to("Se déconnecter", destroy_user_session_path, method: :delete,  class: "btn btn-logout cta text-center ")%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER ADD RELATIONSHIP -->
+<%= render 'shared/relationships_footer' %>

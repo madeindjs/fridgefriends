@@ -1,0 +1,111 @@
+<div class="top-bar">
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <h3>
+        <a href="#" class="tab-underlined active">Fil de dons</a>
+      </h3>
+    </li>
+    <li class="tabs-pipe"> | </li>
+    <li>
+      <h3><%= link_to "Je donne", '/giver/donations', class: "tab-underlined right" %></h3>
+    </li>
+  </ul>
+</div>
+
+<div class="container container-list">
+ <div class="card-content-categories-search">
+   <%#= donation.categories %>
+   <div class="card-content-category-search-1 <%= 'active' if @categories.include?('meat and fish') %>">
+     <%= link_to donations_path(categories: @categories.include?('meat and fish') ? (@categories - ['meat and fish']) : (@categories + ['meat and fish'])) do %>
+       <%= image_tag "iconecard/meatfish-b.svg" %>
+     <% end %>
+   </div>
+   <div class="card-content-category-search-1 <%= 'active' if @categories.include?('drinks') %>">
+     <%= link_to donations_path(categories: @categories.include?('drinks') ? (@categories - ['drinks']) : (@categories + ['drinks'])) do %>
+       <%= image_tag "iconecard/brevage-b.svg" %>
+     <% end %>
+   </div>
+   <div class="card-content-category-search-1 <%= 'active' if @categories.include?('dairy and eggs') %>">
+     <%= link_to donations_path(categories: @categories.include?('dairy and eggs') ? (@categories - ['dairy and eggs']) : (@categories + ['dairy and eggs'])) do %>
+      <%= image_tag "iconecard/dairies-b.svg" %>
+     <% end %>
+   </div>
+   <div class="card-content-category-search-2 <%= 'active' if @categories.include?('fruits and vegetables') %>">
+     <%= link_to donations_path(categories: @categories.include?('fruits and vegetables') ? (@categories - ['fruits and vegetables']) : (@categories + ['fruits and vegetables'])) do %>
+       <%= image_tag "iconecard/vegetables-b.svg" %>
+     <% end %>
+   </div>
+  </div>
+  <div class= "row-search ">
+    <% if @donations.empty? %>
+      <h3>Aucun don disponible pour le moment</h3>
+    <% else %>
+      <% @donations.each do |donation| %>
+        <div class="panel panel-default mb-2">
+          <div class="panel-heading">
+            <div class="col-12 card spoiler-trigger <%= donation_card_class(donation.deadline) %>" data-toggle="collapse">
+              <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
+                <div class="avatar">
+                  <%= cl_image_tag(donation.giver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="row-card-content" id="first-row">
+                  <div class="card-content-deadline">
+                    <p class="<%= donation_text_class(donation.deadline) %>">
+                      <%= render 'icons/horloge', svg_class: donation_fill_class(donation.deadline) %>&thinsp;
+                      <%= donation.deadline.strftime("%d.%m.%Y") %>
+                    </p>
+                  </div>
+                  <% if donation.pick_up %>
+                    <div class="card-content-voiture">
+                      <%= image_tag "iconecard/car.svg" %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="row-card-content" id="second-row">
+                  <div class="card-content-username">
+                    <p>
+                      <%= donation.giver.first_name %>
+                    </p>
+                  </div>
+                  <div class="card-content-categories">
+                    <%# = donation.categories %>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('meat and fish') %>"><%= image_tag "iconecard/meatfish.svg" %></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('drinks') %>"><%= image_tag "iconecard/brevage.svg" %></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('dairy and eggs') %>"><%= image_tag "iconecard/dairies.svg"%></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('fruits and vegetables') %>"><%= image_tag "iconecard/vegetables.svg"%></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-collapse collapse out">
+            <div class="panel-body">
+              <div class= "accordeon" >
+                <div class="d-flex justify-content-between">
+                  <div class="accordeon-content">
+                    <%= simple_format donation.description %>
+                  </div>
+                  <%if donation.photo.present? %>
+                    <div class ="accordeon-image p-2">
+                      <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <%= link_to "Je prends",
+                          choose_receiver_donation_path(donation),
+                          method: :patch,
+                          class: "btn btn-primary btn-block btn-accordeon" %>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<%= render 'shared/donations_footer' %>

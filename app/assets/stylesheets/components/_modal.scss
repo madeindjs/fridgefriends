@@ -1,0 +1,142 @@
+.modal-body {
+  padding-bottom: 60px;
+}
+.modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+  background-color: #FAFAFA;
+}
+.modal-navbar-bottom {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  height: 60px;
+  width: 100vw;
+  background-color:$light-gray;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid $medium-gray;
+  z-index: 999;
+}
+.btn-submit-green {
+  background-image: asset-url("iconecard/green_validate_fat.svg");
+  background-size: cover;
+}
+#btn-submit-donation {
+  height: 54px;
+  width: 54px;
+  border: none;
+  margin-bottom: -10px;
+  background-color: transparent;
+  background-image: asset-url('iconefooter/donation_validation.svg')
+}
+.modal-header {
+  justify-content: center !important;
+}
+.modal-description {
+  padding-top: 20px;
+}
+.close {
+  position:absolute;
+  right:32px;
+}
+.btn-category-modal {
+  border-radius: 100%;
+}
+.btn-group-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-group-modal :active {
+  color: #64C0CE;
+}
+#bodycheckbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  background-color: white;
+}
+input[type=checkbox].checkbox-test{ display: none; }
+.category-icon {
+  padding-right:12px;
+}
+.checkbox-test-label{
+  padding-left: 20px;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  background-size: 42px;
+  background-position: center;
+  opacity:.2;
+  background-color: #EDF2F7;
+  border: 1.5px solid #E1E7ED;
+  border-radius: 50px;
+  transition: none;
+}
+input[type=checkbox].checkbox-test:checked + label.checkbox-test-label {
+ background-color: #54251e;
+ border-color: #9b3f31;
+ mix-blend-mode:difference;
+ opacity:1;
+}
+#meat-and-fish-category {
+  background-image: asset-url("iconecard/meatfish.svg");
+}
+#dairy-and-eggs-category {
+  background-image: asset-url("iconecard/dairies.svg");
+}
+#drinks-category {
+  background-image: asset-url("iconecard/brevage.svg");
+}
+#fruits-and-vegetables-category {
+  background-image: asset-url("iconecard/vegetables.svg");
+}
+label[for="donation_photo"] {
+  width:120px;
+  height:120px;
+  margin: 0 auto;
+  content:asset-url("formulaire/photo1.svg");
+  // background-image: url("https://www.pngtube.com/myfile/full/32-327440_add-photo-icon-png.png");
+  background-size: cover;
+}
+.datepicker {
+  position: relative;
+  height:50px;
+  padding-left: 48px;
+  padding-top: 12px;
+  &:before {
+    position: absolute;
+    content: asset-url("formulaire/calandar.svg");
+    left: 12px;
+    top: 10px;
+  }
+}
+#text-car {
+  padding-left: 54px;
+  position: relative;
+  &:before {
+    content:asset-url("formulaire/car-bleu.svg");
+    position: absolute;
+    top: -20px;
+    left: 12px;
+  }
+}
+#btn-car {
+ position: absolute;
+ right: 40px;
+ top: 8px;
+}

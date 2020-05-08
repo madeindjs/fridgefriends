@@ -1,0 +1,76 @@
+<div class="container" id="userlist-don">
+  <div class= "row">
+    <div class="col-12 list-relationships tabs-underlined">
+      <h3 class="top-bar-dons text-center tab-underlined active relationships">
+        Je récupère
+      </h3>
+    </div>
+    <% if @donations.empty? %>
+      <h3>Tu n'as pas encore choisi de don</h3>
+    <% else %>
+      <% @donations.each do |donation| %>
+        <div class="panel panel-default mb-2">
+          <div class="panel-heading">
+            <div class="col-12 card spoiler-trigger" data-toggle="collapse">
+              <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
+                <div class="avatar">
+                  <%= cl_image_tag(donation.giver.avatar, height: 64, width: 64, gravity: :face, crop: :fill) %>
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="row-card-content" id="first-row">
+                  <div class="card-content-deadline">
+                    <p class="<%= donation_text_class(donation.deadline) %>">
+                      <%= render 'icons/horloge', svg_class: donation_fill_class(donation.deadline) %>&nbsp;
+                      <%= donation.deadline.strftime("%d.%m.%Y") %>
+                    </p>
+                  </div>
+                  <% if donation.pick_up %>
+                    <div class="card-content-voiture">
+                      <%= image_tag "iconecard/car.svg" %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="row-card-content" id="second-row">
+                  <div class="card-content-username">
+                    <p>
+                      <%= donation.giver.first_name %>&nbsp;
+                    </p>
+                  </div>
+                  <div class="card-content-itinerary">
+                    <%= link_to "Itinéraire", google_maps_itinerary(donation.giver.address), target: "_blank" %>
+                  </div>
+                  <div class="card-content-categories">
+                    <div>
+                    <% if donation.status == "confirmed" %>
+                        <%= image_tag "iconecard/green_validate_fat.svg" %>
+                    <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-collapse collapse out">
+                  <div class="panel-body">
+                    <div class= "accordeon" >
+                      <div class="d-flex justify-content-between">
+                        <div class="accordeon-content">
+                          <%= simple_format donation.description %>
+                        </div>
+                          <%if donation.photo.present? %>
+                            <div class ="accordeon-image p-2">
+                              <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                            </div>
+                          <% end %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/donations_footer' %>

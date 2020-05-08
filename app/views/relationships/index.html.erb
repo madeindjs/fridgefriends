@@ -1,0 +1,78 @@
+<% if @relationship_requests.any? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 list-relationships tabs-underlined">
+        <h3 class="top-bar-dons text-center tab-underlined active relationships">Mes invitations</h3>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container container-relationship">
+  <div class="row">
+    <% @relationship_requests.each do |relationship_request| %>
+      <div class="col-12 card">
+        <div class="card-avatar relationships">
+          <div class="avatar">
+            <%= cl_image_tag(relationship_request.user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="row-card-content" id="first-row">
+            <div class="card-content-deadline" style="padding-top: 19px;">
+              <!-- <p><%#= image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
+            </div>
+          </div>
+          <div class="row-card-content" id="second-row">
+            <div class="card-content-username" style="margin-top: -10px;">
+              <p><%= relationship_request.user.first_name %></p>
+            </div>
+          </div>
+          <div class="card-content-links text-center" style="margin-top: -15px;">
+            <%= link_to "Accepter", accept_relationship_path(relationship_request), method: :patch, class: "btn link-success" %>&nbsp;&nbsp;&nbsp;
+            <%= link_to "Refuser", decline_relationship_path(relationship_request), method: :patch, class: "btn link-danger" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container" style="padding-bottom: 60px;">
+  <div class="row">
+    <% if @friends.empty? %>
+      <h1>Il est temps de <strong>frigoter</strong> !</h1>
+    <% else %>
+      <div class="col-12 list-relationships tabs-underlined">
+        <h3 class="top-bar-dons text-center tab-underlined active relationships">Ma liste d'amis</h3>
+      </div>
+        <% @friends.each do |friend| %>
+          <div class="col-12 card mb-2" style="padding-bottom: 60px;">
+            <div class="card-avatar relationships">
+              <div class="avatar">
+                <%= cl_image_tag(friend.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="row-card-content" id="first-row">
+                <div class="card-content-deadline" style="padding-top: 22px;">
+                <!-- <p><%#= image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
+                </div>
+              </div>
+              <div class="row-card-content" id="second-row">
+                <div class="card-content-username" style="margin-top: -15px;">
+                  <p><%= friend.first_name %></p>
+                </div>
+              </div>
+              <div class="card-content-address">
+                <%= link_to friend.address, google_maps_itinerary(friend.address), target: "_blank" %>
+                <%#= friend.address %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/relationships_footer' %>

@@ -1,0 +1,102 @@
+.simple_form {
+  div.input {
+    margin-bottom: 10px;
+    clear: both;
+    /* Required for Webkit, but not for Gecko */
+  }
+
+
+  // input { #fait bug la page principal de login
+  //   width: 320px;
+  //   height: 38px;
+  // }
+
+  button {
+    display: flex;
+    flex-direction: center;
+  }
+}
+
+.pdc-head {
+  color: #64C0CE;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+/* or 154% */
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.pdc-body {
+  color: #64C0CE;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+/* or 154% */
+
+  // text-align: center;
+  letter-spacing: 0.2px;
+}
+
+#envelope-category {
+  // background-image: asset-url("iconepdc/envelope.svg");
+  width: 24px;
+  height: 18px;
+  opacity: 0.6;
+  content:asset-url("iconepdc/envelope.svg");
+  background-size: cover;
+  position: absolute;
+}
+
+#home-category {
+  // background-image: asset-url("iconepdc/home.svg");
+  width: 24px;
+  height: 18px;
+  opacity: 1.6;
+  content:asset-url("iconepdc/home.svg");
+  background-size: cover;
+  position: absolute;
+}
+
+#key-category {
+  // background-image: asset-url("iconepdc/key.svg");
+  width: 24px;
+  height: 18px;
+  opacity: 0.6;
+  content:asset-url("iconepdc/key.svg");
+  background-size: cover;
+  position: absolute;
+}
+
+.txtform {
+  padding-left: 2em;
+}
+
+#keylock-category {
+  // background-image: asset-url("iconepdc/keylock.svg");
+  width: 24px;
+  height: 18px;
+  opacity: 0.6;
+  content:asset-url("iconepdc/keylock.svg");
+  background-size: cover;
+  position: absolute;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    // margin-left: 2.5em;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    // display: flex;
+    align-items: center;
+    text-align: center;
+    color: #64C0CE;
+}

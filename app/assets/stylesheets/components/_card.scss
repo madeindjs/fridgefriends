@@ -1,0 +1,269 @@
+.container-list{
+  padding-bottom: 60px;
+}
+
+.row {
+  margin: 0px !important;
+}
+
+.col-12 {
+  padding: 0px !important;
+}
+
+.card {
+  // margin: 0 0 8px 0 !important;
+  flex-direction: row;
+  box-shadow:$drop-shadow;
+  background-color: $white;
+  height: 96px;
+  border-radius:6px;
+  border: 0;
+  min-width: 92vw;
+  z-index: 10;
+  position: relative;
+}
+
+.card-avatar {
+  // background-color:$green;
+  border-radius:6px 0 0 6px;
+  display: flex;
+  align-items: center;
+  position:relative;
+  width: 40px;
+  box-shadow:inset 0em -2em 60px rgba(0,0,0,.3);
+}
+
+.avatar {
+  position:relative;
+  left : 12px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+  & img{
+    border-radius: 50%;
+  }
+}
+
+.card-content {
+  width: 100%;
+  padding: 0 12px;
+  margin-left: 34px;
+}
+
+.card-content-voiture{
+  margin-top: -29px;
+  background-color: #E6F4F6;
+  border:1px solid #CDE9ED;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+.card-content-categories {
+  display: flex;
+  justify-content:space-between;
+  margin-top: -3px;
+  margin-right: 4px;
+}
+.card-content-category {
+  opacity: 0.1;
+  &.active {
+    opacity: 0.7;
+  }
+  &:nth-child(2) {
+    margin-left:4px !important;
+    margin-right: 0px !important;
+  }
+  &:nth-child(3) {
+    margin-right: 10px !important;
+  }
+}
+.card-content-address {
+  display: flex;
+  margin-top: -15px;
+  opacity: 0.7;
+  font-size: 13px;
+  font-weight: lighter;
+  padding-bottom: 15px;
+  text-decoration: none;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+}
+.card-content-itinerary {
+  opacity: 0.7;
+  font-size: 13px;
+  font-weight: lighter;
+  padding-bottom: 15px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+}
+.card-content-category:not(:last-child) {
+  margin: 0 8px;
+}
+
+.row-card-content {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.card-content-links {
+  margin-top:-12px;
+  & a {
+    padding:0px !important;
+    // padding-right: 42px !important
+  }
+}
+
+// STATES ICONS //
+.card-content-categories-status {
+  // margin-left: 100px;
+}
+
+#first-row {
+  margin-top: 20px;
+}
+
+#second-row {
+  margin-top: -6px;
+}
+
+.accordeon {
+  background-color:$dark-gray;
+  border-left: 1px solid $medium-gray;
+  border-right: 1px solid $medium-gray;
+  // display:flex;
+  // align-items:center;
+  // justify-content:space-between;
+  // margin-top: -7px !important;
+  // margin-bottom: 8px !important;
+  border-radius:6px 6px 0 0;
+}
+
+.accordeon-content {
+  font-size: 13px;
+  font-weight: 400;
+  opacity:.7;
+  padding: 17px 0 0 17px !important;
+  & img {
+    opacity: 1;
+  }
+  p {
+    line-height: 1.8;
+    font-weight: 400;
+  }
+}
+
+.accordeon-image {
+  & img {
+    border-radius: 4px;
+  }
+}
+
+.btn-accordeon {
+  background-color: $medium-blue;
+  height: 47px;
+  font-family:"Montserrat";
+  color: $white;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  font-weight: 700;
+  border-radius: 0 0 5px 5px;
+  padding-top: 11px;
+  box-shadow:0 0 2px rgba(0,0,0,.1);
+}
+
+.panel {
+  animation: .5s cubic-bezier(.4, 0, .20, 1) both fade-in;
+}
+
+.card-content-categories-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  img {
+    margin: 5px;
+  }
+}
+
+.card-content-category-search-1 {
+  margin-right: 20px;
+  border: .3px solid #64C0CE;
+  border-radius: 50%;
+  opacity: 0.4;
+  &.active {
+  opacity: 1;
+  border: 2.5px solid #64C0CE;
+  }
+}
+.card-content-category-search-2 {
+  opacity: 0.4;
+  border: .3px solid #64C0CE;
+  border-radius: 50%;
+  &.active {
+  opacity: 1;
+  border: 2.5px solid #64C0CE;
+  }
+}
+
+.row-search {
+  margin-top: 10px;
+}
+
+
+/// ANIMATION //
+
+// Loading cartes
+
+@for $i from 1 through 12 {
+  .panel {
+    &:nth-child(#{$i}) {
+
+      // Delay the animation. Delay increases as items loop.
+      animation-delay: $i * (.06s);
+
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+// Pulsy card
+
+.card-danger {
+  animation: pulse 4s 3 ease-in-out alternate-reverse;
+}
+
+@keyframes pulse {
+  0% {
+    transform:scale(1);
+    box-shadow:$drop-shadow;
+  }
+
+  50% {
+    transform:scale(1.02);
+    box-shadow: 0px 2px 40px rgba(204, 50, 40, 0.3);
+  }
+
+  100% {
+    transform:scale(.98);
+    box-shadow:$drop-shadow;
+  }
+}

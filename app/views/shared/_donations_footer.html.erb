@@ -1,0 +1,31 @@
+<!-- FOOTER -->
+</div>
+  <div class="footer">
+    <div class="footer-element footer-icon <%= 'active' if current_page?('/donations') %>">
+      <%= link_to donations_path do %>
+        <%= image_tag "iconefooter/home.svg" %>
+      <% end %>
+    </div>
+    <div class="footer-element footer-icon <%= 'active' if current_page?('/receiver/donations') %>">
+      <%= link_to receiver_donations_path do %>
+        <%= image_tag "iconefooter/panier.svg" %>
+      <% end %>
+    </div>
+    <div class="footer-element">
+        <%= image_tag "iconefooter/signeplus.svg", data: { toggle: "modal", target: "#donationNewModal" } %>
+    </div>
+    <div class="footer-element footer-icon <%= 'active' if current_page?('/profile') %>">
+      <%= link_to(profile_path) do %>
+        <%= image_tag "iconefooter/user.svg" %>
+      <% end %>
+    </div>
+    <div class="footer-element footer-icon <%= 'active' if current_page?('/relationships') %>">
+      <%= link_to relationships_path do %>
+        <%= image_tag "iconefooter/contact.svg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<%= render 'shared/modal_add_donations' %>

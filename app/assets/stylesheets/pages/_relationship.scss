@@ -1,0 +1,43 @@
+.logo-friend img {
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.list-relationships{
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.tabs-underlined .tab-underlined.active.relationships {
+  opacity: 1;
+  // border-bottom: 8px solid $medium-blue;
+  &:before {
+      content : "";
+      position: absolute;
+      left    : 0;
+      top  : 0px;
+      height  : 1px;
+      width   : 100%;  /* percentage of the element width*/
+      border-bottom:8px solid $medium-blue;;
+      margin-top:52px; /*move the border below the text*/
+    }
+}
+
+.card-avatar.relationships{
+  background-color:$light-blue;
+  border-radius:6px 0 0 6px;
+  display: flex;
+  align-items: center;
+  position:relative;
+  width: 40px;
+  box-shadow:inset 0em -2em 60px rgba(0,0,0,.3);
+}
+
+#relationship-card-padding{
+  padding-bottom: 60px;
+}
+
+

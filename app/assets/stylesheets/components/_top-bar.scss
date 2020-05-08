@@ -1,0 +1,63 @@
+.top-bar {
+  height:60px;
+  background-color:$light-gray;
+  position:fixed;
+  top:0;
+  width:100vw;
+  padding:16px;
+  border-bottom: 1px solid $medium-gray;
+  z-index: 999;
+}
+
+.top-bar-dons{
+  padding: 5px;
+  font-size: 18px !important;
+}
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 11px;
+}
+
+.tabs-underlined .tab-underlined {
+  color: $dark-blue;
+  padding: 8px;
+  margin: 8px 16px;
+  opacity: .3;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  // border-bottom: 8px solid $medium-blue;
+  &:before {
+      content : "";
+      position: absolute;
+      left    : 0;
+      top  : 0px;
+      height  : 1px;
+      width   : 51%;  /* percentage of the element width*/
+      border-bottom:8px solid $medium-blue;;
+      margin-top:52px; /*move the border below the text*/
+    }
+}
+
+.tab-underlined.active.right {
+  &:before {
+      left    : 51%;
+    }
+}
+
+.tabs-pipe {
+  margin-top: -12px;
+  font-size: 24px;
+  color: $medium-gray;
+}
+
+.tabs-underlined .friend-tab-underlined.active {
+  opacity: 1;
+  border-bottom: 8px solid $medium-blue;
+}

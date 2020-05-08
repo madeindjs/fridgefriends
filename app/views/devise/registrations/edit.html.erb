@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="parameters mt-4">
+    <div class="col-12 list-relationships tabs-underlined">
+      <h3 class="top-bar-dons text-center tab-underlined active relationships">
+        Paramètre de compte
+      </h3>
+    </div>
+  </div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+  <label class="avatar-user">
+    <span style="display:none;">
+
+  <p>Photo de profil  <%= f.file_field :avatar, :label => "avatar" %></p>
+    </span>
+  </label>
+  <div class="pdc-head">
+    <p>Modifier mon Avatar</p>
+  </div>
+  <div class="pdc-body">
+    <div id="home-category">
+    </div>
+      <p><%= f.input :address,
+                     label: 'Adresse',
+                     label_html: { class: 'txtform' },
+                     placeholder: 'Changez votre adresse postale' %>
+      </p>
+    <div class="form-inputs">
+    <div id="envelope-category">
+    </div>
+      <%= f.input :email,
+                  label: 'Email',
+                  label_html: { class: 'txtform' },
+                  required: true,
+                  autofocus: true %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+      <div id="keylock-category">
+      </div>
+      <%= f.input :current_password,
+                  label: 'Mot de passe actuel',
+                  label_html: { class: 'txtform' },
+                  hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos changements",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
+      <div id="key-category">
+      </div>
+      <%= f.input :password,
+                  label: 'Nouveau mot de passe',
+                  label_html: { class: 'txtform' },
+                  hint: "Laissez le champ vide si vous ne voulez pas le modifier",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <div id="key-category">
+      </div>
+      <%= f.input :password_confirmation,
+                  label: 'Confirmer le mot de passe',
+                  label_html: { class: 'txtform' },
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
+  </div>
+    <div class="form-actions pt-3">
+      <%= f.button :submit, "Mettre à jour le compte", class: 'btn btn-logout cta' %>
+    </div>
+    <% end %>
+<!--  <div class="delete-account">
+    <h6>Zone de danger</h6>
+    <p>Envie de nous quitter ? <%#= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr ?" }, method: :delete, class: 'btn btn-danger' %></p>
+  </div> <-->
+
+  <div class="back mt-5 mb-4">
+    <%= link_to "Retour", :back %>
+  </div>
+</div>
+<%= render 'shared/relationships_footer' %>
+

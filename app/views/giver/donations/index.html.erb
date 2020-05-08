@@ -1,0 +1,111 @@
+<div class="top-bar">
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <h3><%= link_to "Fil de dons", '/donations', class: "tab-underlined", id: "list-don" %></h3>
+    </li>
+    <li class="tabs-pipe"> | </li>
+    <li>
+      <h3><a href="#" class="tab-underlined active right">Je donne</a></h3>
+    </li>
+  </ul>
+</div>
+
+<div class="container container-list" id="userlist-don">
+  <div class= "row justify-content-center">
+    <% if @donations.empty? %>
+      <div class="text-center">
+        <h3>N'hésite pas à donner ! Clique sur l'icône "+" pour créer un don</h3>
+        <%= image_tag "iconefooter/signeplus.svg", data: { toggle: "modal", target: "#donationNewModal" } %>
+      </div>
+    <% else %>
+    <% @donations.each do |donation| %>
+      <div class="panel panel-default mb-2">
+        <div class="panel-heading">
+          <div class="col-12 card spoiler-trigger" data-toggle="collapse">
+            <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
+              <div class="avatar" style="background-color: #FAFAFA">
+                <% if donation.status == "chosen" %>
+                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                <% elsif donation.status == "confirmed" %>
+                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                <% else donation.status == "pending" %>
+                  <%= image_tag("iconecard/panier-sad.svg", height: 64, width: 64, crop: :fill, gravity: :face) %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="row-card-content" id="first-row">
+                <div class="card-content-deadline">
+                  <p class="<%= donation_text_class(donation.deadline) %>">
+                    <%= render 'icons/horloge', svg_class: donation_fill_class(donation.deadline) %>&thinsp;
+                    <%= donation.deadline.strftime("%d.%m.%Y") %>
+                  </p>
+                </div>
+                  <% if donation.pick_up %>
+                    <div class="card-content-voiture">
+                      <%= image_tag "iconecard/car.svg" %>
+                    </div>
+                  <% end %>
+              </div>
+
+              <div class="row-card-content" id="second-row">
+                <div class="card-content-username">
+                  <% if donation.status == "chosen" && donation.pick_up == true %>
+                    <p>Je dois me déplacer.</p>
+                  <% elsif donation.status == "chosen" && donation.pick_up == false %>
+                    <p><%= donation.receiver.first_name %> va passer.</p>
+                  <% elsif donation.status == "confirmed" %>
+                    <p> Zéro gaspi !</p>
+                  <% else donation.status == "pending" %>
+                    <p> Disponible !</p>
+                  <% end %>
+                </div>
+                <div class="card-content-categories">
+                  <div class="card-content-categories-status">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-collapse collapse out">
+          <div class="panel-body">
+            <div class= "accordeon" >
+              <div class="d-flex justify-content-between">
+                <div class="accordeon-content">
+                  <%= simple_format donation.description %>
+                </div>
+                <% if donation.photo.present? %>
+                  <div class ="accordeon-image p-2">
+                    <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <!-- <div class= "row accordeon" >
+                <div class="accordeon-content col-7">
+                  <%= simple_format donation.description %>
+                </div>
+                <%#if donation.photo.present? %>
+                  <div class ="accordeon-image col-5">
+                    <%#= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                  </div>
+                <#% end %>
+              </div> -->
+              <% if donation.status == "chosen" %>
+                <%= link_to("Don récupéré", confirm_giver_donation_path(donation), method: :patch, class: "btn btn-primary btn-block btn-accordeon") %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% end%>
+    <% end%>
+  </div>
+</div>
+
+<!-- MODAL DONATION NEW -->
+<%= render 'shared/modal_add_donations' %>
+
+<%= render 'shared/donations_footer' %>

@@ -1,0 +1,8 @@
+function insertUserCards(innerHTML) {
+  const cardsContainer = document.getElementById('cards-container')
+  cardsContainer.innerHTML = innerHTML
+}
+
+insertUserCards('<%= j render "relationships/cards", users: @users %>')
+
+console.log('<%= @users.count %>')

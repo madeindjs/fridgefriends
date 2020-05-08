@@ -1,0 +1,23 @@
+<div class="card mt-2" style="min-width: auto;">
+  <div class="card-avatar relationships">
+    <div class="avatar">
+      <%= cl_image_tag(user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="row-card-content" id="first-row">
+      <div class="card-content-deadline" style="padding-top: 19px;"></div>
+    </div>
+    <div class="row-card-content" id="second-row">
+      <div class="card-content-username" style="margin-top: -10px;">
+        <p><%= user.first_name %> <%= user.last_name %></p>
+      </div>
+    </div>
+    <div class="card-content-links text-center" style="margin-top: -15px; padding-left: 150px; margin-left: -36px; margin-top: -34px;">
+       <%= simple_form_for Relationship.new do |f| %>
+        <%= f.input :friend_id, as: :hidden, input_html: { value: user.id } %>
+        <%= f.submit "Inviter", class: "btn link-success" %>
+       <% end %>
+    </div>
+  </div>
+</div>

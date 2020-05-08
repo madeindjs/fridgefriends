@@ -1,0 +1,84 @@
+<!--
+        __       _______
+       |  |     |   ____|
+ ______|  |     |  |__
+|______|  |     |   __|
+       |  `----.|  |____
+       |_______||_______|
+
+     ____    __    ____  ___       _______   ______   .__   __.
+     \   \  /  \  /   / /   \     /  _____| /  __  \  |  \ |  |
+ _____\   \/    \/   / /  ^  \   |  |  __  |  |  |  | |   \|  |
+|______\            / /  /_\  \  |  | |_ | |  |  |  | |  . `  |
+        \    /\    / /  _____  \ |  |__| | |  `--'  | |  |\   |
+         \__/  \__/ /__/     \__\ \______|  \______/  |__| \__|
+
+       .______       _______ .__   __. .__   __.  _______     _______.
+       |   _  \     |   ____||  \ |  | |  \ |  | |   ____|   /       |
+ ______|  |_)  |    |  |__   |   \|  | |   \|  | |  |__     |   (----`
+|______|      /     |   __|  |  . `  | |  . `  | |   __|     \   \
+       |  |\  \----.|  |____ |  |\   | |  |\   | |  |____.----)   |
+       | _| `._____||_______||__| \__| |__| \__| |_______|_______/
+
+       .______        ___   .___________.  ______  __    __
+       |   _  \      /   \  |           | /      ||  |  |  |
+ ______|  |_)  |    /  ^  \ `---|  |----`|  ,----'|  |__|  |
+|______|   _  <    /  /_\  \    |  |     |  |     |   __   |
+       |  |_)  |  /  _____  \   |  |     |  `----.|  |  |  |
+       |______/  /__/     \__\  |__|      \______||__|  |__|
+
+       ____    __   _  _
+      |___ \  /_ | | || |
+ ______ __) |  | | | || |_
+|______|__ <   | | |__   _|
+       ___) |  | |    | |
+      |____/   |_|    |_|
+
+>
+ -->
+<div class="container text-center home-container col-lg-12 col-xs-12">
+  <div class="row">
+    <div class="bodyfrontpage" style="height: min-content;">
+      <div class="logo-home">
+        <%=image_tag("fridge.png")%>
+      </div>
+      <h1 class="display-2 pt-2" style="font-size: 41px;">Fridge Friends</h1>
+      <h2 class="display-3">Ne jette plus ta nourriture, donne-la !</h2>
+      <p class="lead pt-5" id="lead-bolder">L'application Fridge Friends organise pour toi le don de nourriture.</p>
+      <div>
+        <p class="lead pt-1">Au lieu de la jeter, propose à tes proches de les récupérer gratuitement !</p>
+      </div>
+      <div class='pt-3'>
+        <%= link_to "Se connecter", new_user_session_path,{class: 'btn btn-home '} %>
+      </div>
+      <div class='pt-3'>
+        <%= link_to "S'inscrire", new_user_registration_path, {class: 'btn btn-home cta'}  %>
+      </div>
+      <div class="col-lg-12 col-xs-12">
+        <%= image_tag "Fridge Friends App.png", alt: "Fridge Friends", height: "20%", width: "50%", class: "pt-5" %>
+      </div>
+
+      <div class="row-centered pos pt-5">
+        <div class="col-lg-12 col-xs-12 home-text">
+          <h2>870 M</h2>
+          <p>On pourrait <b>nourrir plus de 870 millions de personnes</b> en redistribuant la nourriture au lieu de la jeter.</p>
+        </div>
+        <div class="col-lg-12 col-xs-12 home-text pt-3">
+          <h2>35 %</h2>
+          <p>Les pertes alimentaires mondiales sont d'environ <b>20%</b> pour la viande et les produits laitiers et <b>35%</b> pour le poisson.</p>
+        </div>
+        <div class="col-lg-12 col-xs-12 home-text pt-3">
+          <h2>100 kg par <i class="fas fa-male"></i></h2>
+          <p>Les Occidentaux jettent <b>95 et 115 kg</b> de nourriture par personne, tandis qu'en Asie du Sud les consommateurs ne jettent chacun que <b>6 à 11 kg par an.</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-xs-12 home-text" style="margin-top: 20px;">
+      <a href="https://github.com/esbo22/fridgefriends" target="_blank" style="color: white"><i class="fab fa-github"></i></a>
+      <p>Fridge Friends, 2019</p>
+    </div>
+  </div>
+</div>
+
+
+

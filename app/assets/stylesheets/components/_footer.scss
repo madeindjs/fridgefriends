@@ -1,0 +1,26 @@
+.footer{
+  height: 60px;
+  width: 100vw;
+  // margin-left: -1rem;
+  // margin-right: -1rem;
+  background-color:$light-gray;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid $medium-gray;
+  z-index: 999;
+}
+
+.footer-element {
+
+  &.footer-icon {
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
