@@ -9,6 +9,9 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
+gem 'node', '~> 1.0'
+gem 'bootstrap'
+
 
 #project gems
 gem 'cloudinary', '~> 1.9.1'
@@ -36,3 +39,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+
