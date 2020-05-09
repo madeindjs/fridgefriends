@@ -26,6 +26,27 @@ class User < ApplicationRecord
       where(friend_id: id, status: 'pending')
   end
 
+  # au lieu de supprimer, indiquer que l'utilisateur a demandé une suppression et l'horodater
+  def soft_delete
+    update_attribute(:deleted_at, Time.current)
+  end
+
+  # supprime en BD le user
+  def hard_delete
+    userdel = User.find(id)
+    userdel.delete
+  end
+
+  # s'assurer que le compte de l'utilisateur est actif
+  def active_for_authentication?
+    super && !deleted_at
+  end
+
+  # fournir un message personnalisé pour un compte supprimé
+  def inactive_message
+    !deleted_at ? super : :deleted_account
+  end
+
   include PgSearch
 
   pg_search_scope :search,
