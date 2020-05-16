@@ -31,7 +31,7 @@ class User < ApplicationRecord
     update_attribute(:deleted_at, Time.current)
   end
 
-  # supprime en BD le user
+  # supprime en BD le user mais pas les donations en cours ni les friendslink
   def hard_delete
     userdel = User.find(id)
     userdel.delete
