@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  mount_uploader :avatar, PhotoUploader
+  has_one_attached :avatar
 
   has_many :relationships
   has_many :donations, foreign_key: :giver_id

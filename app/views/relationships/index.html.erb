@@ -14,7 +14,7 @@
       <div class="col-12 card">
         <div class="card-avatar relationships">
           <div class="avatar">
-            <%= cl_image_tag(relationship_request.user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+            <%= image_tag(relationship_request.user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
           </div>
         </div>
         <div class="card-content">
@@ -50,7 +50,7 @@
           <div class="col-12 card mb-2" style="padding-bottom: 60px;">
             <div class="card-avatar relationships">
               <div class="avatar">
-                <%= cl_image_tag(friend.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                <%= image_tag(friend.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
               </div>
             </div>
             <div class="card-content">

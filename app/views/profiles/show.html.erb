@@ -5,7 +5,8 @@
       <h3 class="top-bar-dons text-center tab-underlined active relationships">Mon profil</h3>
       </div>
       <div class="user-header col-12 pt-5">
-        <%= cl_image_tag(@user.avatar, height: 150, width: 150, crop: :fill, gravity: :face, class: "user-avatar") %>
+        <%# <%= cl_image_tag(@user.avatar, height: 150, width: 150, crop: :fill, gravity: :face, class: "user-avatar") %>
+        <%= image_tag(@user.avatar, class: "user-avatar") if @user.avatar.attached? %>
         <p><%= @user.first_name %> <%= @user.last_name %></p>
       </div>
       <div class="donation-p col-12 text-center ">

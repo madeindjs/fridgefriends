@@ -9,7 +9,7 @@ class Donation < ApplicationRecord
 
   validate :categories_in_list
 
-  mount_uploader :photo, PhotoUploader
+  has_one_attached :photo
 
   private
 
