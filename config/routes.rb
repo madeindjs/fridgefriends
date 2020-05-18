@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   root to: 'pages#home'
 
-  resources :users, only: [:index]
+  resources :users
 
-  resource :profile, only: [:show]
+  resource :profile
 
   resources :relationships, only: %i[index new create] do
     member do
