@@ -14,6 +14,14 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
 
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize: "150x150!").processed
+    else
+      "/default_profile.jpg"
+    end
+  end
+
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
     friend_ids    = relationships.map(&:user_id) + relationships.map(&:friend_id)

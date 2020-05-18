@@ -34,6 +34,7 @@
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
 
+
         <%= f.input :password,
                     label: "Mot de passe",
                     placeholder: "********",
@@ -46,12 +47,21 @@
                     placeholder: "********",
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+
+        <%= f.file_field :avatar %>
         </div>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Valider", id: "btn-form-session-signup" %>
       </div>
       <% end %>
+      <div class="field">
+        <% if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar)%>
+        <% else %>
+          <%= image_tag("/default_profile.jpg") %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -24,6 +24,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'image_processing', '~> 1.2'
 
 gem 'pg_search'
 

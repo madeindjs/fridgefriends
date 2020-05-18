@@ -20,12 +20,7 @@
   </div>
   
   <div class="field">
-    <%= image_tag url_for(@user.avatar) if @user.avatar.attached? %>
-    <%# <% if current_user.avatar.attached? %> %>
-      <%# <%= image_tag current_user.avatar, class: 'avatar' %> %>
-    <%# <% else %> %>
-      <%# <%= image_tag 'default-avatar', class: 'avatar' %> %>
-    <%# <% end %> %>
+    <%= image_tag(resource.avatar.thumbnail) %>
   </div>
 
   <div class="pdc-body">
