@@ -30,7 +30,7 @@
         </div>
         <div class="text-center-params-user">
           <div class="btn-params-user">
-            <%= link_to("Modifier mon compte", edit_user_registration_path) %>
+            <%= link_to("Modifier mon compte", edit_user_registration_path(current_user)) %>
           </div>
           <div class="btn-del-user">
             <%= link_to "Supprimer mon compte", registration_path(current_user), method: :delete, data: { confirm: "Vous êtes certain ? une fois supprimé vous ne pourrez pas vous inscrire avec la même adresse mail." } %>

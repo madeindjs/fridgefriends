@@ -6,6 +6,12 @@ default: &default
 development:
   <<: *default
   database: fridgefriends_development
+  name: fridgefriends
+  password: D9a8v7i0d
+  port: 5432
+  server: localhost
+  username: esbo
+
 
 test:
   <<: *default

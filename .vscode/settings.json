@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "fridgefriends_development",
+            "dialect": "PostgreSQL",
+            "name": "fridgefriends",
+            "password": "D9a8v7i0d",
+            "port": 5432,
+            "server": "localhost",
+            "username": "esbo"
+        }
+    ]
+}
