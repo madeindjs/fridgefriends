@@ -24,7 +24,9 @@
               <div class="modal-description">
                 <%= f.input :description, placeholder: "Je donne tout, venez !", :as => :text, :input_html => {:rows => 5} %>
               </div>
-              <%= f.input :photo %>
+              <%# <%= f.input :photo %>
+              <p>Photo du don  <%= f.file_field :photo, :label => "photo" %></p>
+              <%# au dessou c'est les deux ligne original %>
               <%# <%= f.input :photo, input_html: { hidden: true }, label: '&nbsp;'.html_safe %>
               <%# <%= f.input :photo_cache, as: :hidden %> 
 

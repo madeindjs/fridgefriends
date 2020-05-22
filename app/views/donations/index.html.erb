@@ -89,7 +89,10 @@
                   </div>
                   <%if donation.photo.present? %>
                     <div class ="accordeon-image p-2">
-                      <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                      <%# <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                      <%# les lignes du dessous sont des test et celle du dessus original de 2019 %>
+                      <%# <%= image_tag (donation.photo.variant(resize: "107x114!", crop: :fill).processed) %>
+                      <%= image_tag donation.photo.variant(resize: "107x114!").processed %> 
                     </div>
                   <% end %>
                 </div>

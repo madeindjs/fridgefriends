@@ -11,6 +11,8 @@ gem 'rails', '6.0.3'
 gem 'redis'
 gem 'node', '~> 1.0'
 gem 'bootstrap'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 
 #project gems

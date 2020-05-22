@@ -9,7 +9,8 @@ class Donation < ApplicationRecord
 
   validate :categories_in_list
 
-  has_one_attached :photo
+  
+  has_many_attached :photo
 
   private
 

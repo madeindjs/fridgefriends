@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+  has_many_attached :photo
   after_commit :add_default_avatar, on: %i[create update]
 
   has_many :relationships
