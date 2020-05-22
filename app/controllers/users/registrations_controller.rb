@@ -9,6 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
   end
 
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :address, :avatar, :photo)
+  end
+
+
   # def destroy
   #   if resource.didsomething
   #     redirect_to root_path, flash: { error: "You can't delete your account" }
@@ -16,4 +21,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #     super
   #   end
   # end
+  protected
+
+    def after_update_path_for(resource)
+      user_path(resource)
+    end
 end

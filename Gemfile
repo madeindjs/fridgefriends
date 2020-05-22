@@ -11,11 +11,13 @@ gem 'rails', '6.0.3'
 gem 'redis'
 gem 'node', '~> 1.0'
 gem 'bootstrap'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 
 #project gems
-gem 'cloudinary', '~> 1.9.1'
-gem 'carrierwave', '~> 1.2'
+# gem 'cloudinary', '~> 1.9.1'
+# gem 'carrierwave', '~> 1.2'
 
 #assets
 gem 'autoprefixer-rails'
@@ -24,6 +26,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'image_processing', '~> 1.2'
 
 gem 'pg_search'
 

@@ -27,8 +27,11 @@
               <%= f.input :description, placeholder: "Je donne tout, venez !", :as => :text, :input_html => {:rows => 5} %>
               </div>
 
-                <%= f.input :photo, input_html: { hidden: true }, label: '&nbsp;'.html_safe %>
-                <%= f.input :photo_cache, as: :hidden %>
+                <%# <%= f.input :photo, input_html: { hidden: true }, label: '&nbsp;'.html_safe %>
+                <%# <%= f.input :photo %>
+                <p>Photo du don  <%= f.file_field :photo, :label => "photo" %></p>
+                <%# <%= f.input :photo_cache, as: :hidden %>
+                <%# <%= f.input :photo, as: :hidden %>
 
 
               Sélectionnez une ou plusieurs catégories

@@ -25,9 +25,9 @@
             <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
               <div class="avatar" style="background-color: #FAFAFA">
                 <% if donation.status == "chosen" %>
-                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% elsif donation.status == "confirmed" %>
-                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% else donation.status == "pending" %>
                   <%= image_tag("iconecard/panier-sad.svg", height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% end %>
@@ -79,7 +79,9 @@
                 </div>
                 <% if donation.photo.present? %>
                   <div class ="accordeon-image p-2">
-                    <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                    <%# <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                    <%# au dessus la ligne original en dessou la variant pour active storage %>
+                    <%= image_tag donation.photo.variant(resize: "107x114!").processed %>
                   </div>
                 <% end %>
               </div>

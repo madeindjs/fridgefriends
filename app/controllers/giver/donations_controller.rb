@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Giver::DonationsController < ApplicationController
   def index
     @donations = current_user.donations.where('deadline >= ?', Date.today).order("deadline")
@@ -32,6 +30,6 @@ class Giver::DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:photo, :deadline, :pick_up, :description, categories: [])
+    params.require(:donation).permit(:deadline, :pick_up, :description, categories: [])
   end
 end

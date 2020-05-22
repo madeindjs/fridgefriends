@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  mount_uploader :avatar, PhotoUploader
+  has_one_attached :avatar
+  has_many_attached :photo
+  after_commit :add_default_avatar, on: %i[create update]
 
   has_many :relationships
   has_many :donations, foreign_key: :giver_id
@@ -13,6 +15,14 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize: "150x150!").processed
+    else
+      "/default_profile.jpg"
+    end
+  end
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
@@ -54,4 +64,19 @@ class User < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+  private
+
+  def add_default_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default_profile.jpg'
+          )
+        ), 
+        filename: 'default_profile.jpg',
+        content_type: 'image/jpg'
+      )
+    end
+  end
 end
