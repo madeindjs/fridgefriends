@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  devise_for :users
+  # devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  # devise_for :user do
+  #   get ':user/edit-profile' => 'devise/registration#edit', :as => :edit_user_profile
+  # end
   root to: 'pages#home'
 
-  resources :users, only: [:index]
+  resources :users
 
-  resource :profile, only: [:show]
+  resource :profile
 
   resources :relationships, only: %i[index new create] do
     member do

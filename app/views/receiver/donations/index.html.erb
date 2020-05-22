@@ -14,7 +14,7 @@
             <div class="col-12 card spoiler-trigger" data-toggle="collapse">
               <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
                 <div class="avatar">
-                  <%= cl_image_tag(donation.giver.avatar, height: 64, width: 64, gravity: :face, crop: :fill) %>
+                  <%= image_tag(donation.giver.avatar, height: 64, width: 64, gravity: :face, crop: :fill) %>
                 </div>
               </div>
               <div class="card-content">
@@ -57,7 +57,7 @@
                         </div>
                           <%if donation.photo.present? %>
                             <div class ="accordeon-image p-2">
-                              <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                              <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                             </div>
                           <% end %>
                         </div>
