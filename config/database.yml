@@ -7,10 +7,8 @@ development:
   <<: *default
   database: fridgefriends_development
   name: fridgefriends
-  password: ***********
   port: 5432
   server: localhost
-  username: esbo
 
 
 test:
