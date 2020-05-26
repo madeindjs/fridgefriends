@@ -10,14 +10,11 @@ gem 'puma', ">= 4.3.5"
 gem 'rails', '6.0.3'
 gem 'redis'
 gem 'node', '~> 1.0'
-gem 'bootstrap'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 
 
 #project gems
-# gem 'cloudinary', '~> 1.9.1'
-# gem 'carrierwave', '~> 1.2'
 
 #assets
 gem 'autoprefixer-rails'

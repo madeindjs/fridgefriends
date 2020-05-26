@@ -6,24 +6,18 @@
       </h3>
     </div>
   </div>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
-  <%# <%= simple_form_for(resource, :as => resource_name, :url => user_registration_path(resource_name), html: { method: :post }) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
   <label class="avatar-user">
     <span style="display:none;">
-      <p>Photo de profil  <%= f.file_field :avatar, :label => "avatar" %></p>
+      <p>Photo de profil</p>  
+        <%= f.file_field :avatar, :label => "avatar" %>
     </span>
   </label>
   
   <div class="pdc-head">
     <p>Modifier mon Avatar</p>
   </div>
-  
-  <div class="field user-header">
-    <%= image_tag(current_user.avatar_thumbnail, class: "user-avatar") %>
-  </div>
-
   <div class="pdc-body">
     <div id="home-category">
     </div>
@@ -70,6 +64,7 @@
     </div>
   </div>
   <div class="form-actions pt-3">
+    <div>
     <%= f.button :submit, "Mettre à jour le compte", class: 'btn btn-logout cta' %>
   </div>
     <% end %>
@@ -77,4 +72,5 @@
     <%= link_to "Retour", :back %>
   </div>
 </div>
+<!-- FOOTER -->
 <%= render 'shared/relationships_footer' %>
