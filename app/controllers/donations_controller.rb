@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DonationsController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
     @donation = Donation.new
     @categories = params[:categories] || []

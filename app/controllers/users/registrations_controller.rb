@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  skip_before_action :authenticate_user!
   # DELETE /resource
   def destroy
     # resource.soft_delete

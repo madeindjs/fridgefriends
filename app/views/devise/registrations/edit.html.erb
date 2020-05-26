@@ -6,13 +6,12 @@
       </h3>
     </div>
   </div>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
-  <%# <%= simple_form_for(resource, :as => resource_name, :url => user_registration_path(resource_name), html: { method: :post }) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
   <label class="avatar-user">
     <span style="display:none;">
-      <p>Photo de profil  <%= f.file_field :avatar, :label => "avatar" %></p>
+      <p>Photo de profil</p>  
+        <%= f.file_field :avatar, :label => "avatar" %>
     </span>
   </label>
   
@@ -70,7 +69,9 @@
     </div>
   </div>
   <div class="form-actions pt-3">
-    <%= f.button :submit, "Mettre à jour le compte", class: 'btn btn-logout cta' %>
+    <div class="btn btn-logout cta">
+      <%= f.button :submit, "Mettre à jour le compte" %>
+    </div>
   </div>
     <% end %>
   <div class="back mt-5 mb-4">
