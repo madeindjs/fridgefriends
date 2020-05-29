@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.6.3'
+ruby '2.7.1'
 
 #defaults
 gem 'bootsnap', require: false
@@ -7,14 +7,11 @@ gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma', ">= 4.3.5"
-gem 'rails', '6.0.3'
+gem 'rails', '6.0.3.1'
 gem 'redis'
 gem 'node', '~> 1.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
-
-
-#project gems
 
 #assets
 gem 'autoprefixer-rails'
@@ -24,7 +21,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'image_processing', '~> 1.2'
-
+gem "aws-sdk-s3", require: false
 gem 'pg_search'
 
 group :development do
