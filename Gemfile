@@ -24,7 +24,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'image_processing', '~> 1.2'
-
+gem "aws-sdk-s3", require: false
 gem 'pg_search'
 
 group :development do

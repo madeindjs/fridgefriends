@@ -7,12 +7,12 @@ local:
   root: <%= Rails.root.join("storage") %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
-# amazon:
-#   service: S3
-#   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-#   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-#   region: us-east-1
-#   bucket: your_own_bucket
+amazon:
+  service: S3
+  access_key_id: AKIAUICQCCFQFPZHC2UU
+  secret_access_key: KLKJYJYkV3fCGvfFfhsMiwxd7vo1pztpebMtyLr/
+  region: eu-west-3
+  bucket: active-storage-fridgefriends
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
@@ -32,17 +32,19 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
-gcs: &gcs
-  service: GCS
-  project: ""
 
-private_gcs:
-  <<: *gcs
-  credentials: <%= Rails.root.join("path/to/private_keyfile.json") %>
-  bucket: ""
 
-public_gcs:
-  <<: *gcs
-  credentials: <%= Rails.root.join("path/to/public_keyfile.json") %>
-  bucket: ""
-  public: true
+# gcs: &gcs
+#   service: GCS
+#   project: ""
+
+# private_gcs:
+#   <<: *gcs
+#   credentials: <%= Rails.root.join("path/to/private_keyfile.json") %>
+#   bucket: ""
+
+# public_gcs:
+#   <<: *gcs
+#   credentials: <%= Rails.root.join("path/to/public_keyfile.json") %>
+#   bucket: ""
+#   public: true
