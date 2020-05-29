@@ -15,8 +15,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
-  validates :avatar, content_type: %w[image/png image/jpg image/jpeg]
-  validates :photo, content_type: %w[image/png image/jpg image/jpeg]
 
   def avatar_thumbnail
     if avatar.attached?
