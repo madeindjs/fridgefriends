@@ -15,6 +15,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
+  
+  def variable?
+    ActiveStorage.variable_content_types.include?(content_type)
+  end
 
   def avatar_thumbnail
     if avatar.attached?
