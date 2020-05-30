@@ -16,13 +16,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   
-  def variable?
-    ActiveStorage.variable_content_types.include?(content_type)
-  end
-
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variable?.variant(resize: "120x120!").processed
+      avatar.variant(resize: "120x120!").processed
     else
       "/default_profile.jpg"
     end
