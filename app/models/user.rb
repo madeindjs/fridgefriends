@@ -16,15 +16,15 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   
-  def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize_to_fit: [120, 120]).processed
-    else
-      avatar.attach(io: File.open('app/assets/images/default_profile.jpg'),
-    filename: 'default_profile.jpg', content_type: 'image/jpg')
-      # "/default_profile.jpg"
-    end
-  end
+  # def avatar_thumbnail
+  #   if avatar.attached?
+  #     avatar.variant(resize_to_fit: [120, 120]).processed
+  #   else
+  #     avatar.attach(io: File.open('app/assets/images/default_profile.jpg'),
+  #     filename: 'default_profile.jpg', content_type: 'image/jpg')
+  #     # "/default_profile.jpg"
+  #   end
+  # end
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
@@ -68,8 +68,11 @@ class User < ApplicationRecord
                   }
   private
 
-  def add_default_avatar
-    unless avatar.attached?
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize_to_fit: [120, 120]).processed
+    else
       avatar.attach(
         io: File.open(
           Rails.root.join(
@@ -81,4 +84,5 @@ class User < ApplicationRecord
       )
     end
   end
+
 end
