@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   
+  validates :photo, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
+  validates :avatar, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
+  
   # def avatar_thumbnail
   #   if avatar.attached?
   #     avatar.variant(resize_to_fit: [120, 120]).processed
@@ -25,7 +28,6 @@ class User < ApplicationRecord
   #     # "/default_profile.jpg"
   #   end
   # end
-
 
   def avatar_thumbnail
     if avatar.attached?
@@ -42,6 +44,8 @@ class User < ApplicationRecord
       )
     end
   end
+
+
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
@@ -84,8 +88,5 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
   private
-
-
-  
 
 end
