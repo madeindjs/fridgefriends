@@ -18,9 +18,7 @@ class User < ApplicationRecord
   
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize: "120x120!").processed
-    elsif avatar.variable?
-      ActiveStorage::Blob.find(@avatar_id).variant(resize: "120x120!").processed
+      avatar.variant(resize_to_fit: [120, 120]).processed
     else
       "/default_profile.jpg"
     end
