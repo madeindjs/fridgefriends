@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
+
   
   # def avatar_thumbnail
   #   if avatar.attached?
@@ -25,6 +26,9 @@ class User < ApplicationRecord
   #     # "/default_profile.jpg"
   #   end
   # end
+
+  validates :photo, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
+  validates :avatar, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
