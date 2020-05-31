@@ -15,7 +15,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
-
+  
+  validates :photo, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
+  validates :avatar, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
   
   # def avatar_thumbnail
   #   if avatar.attached?
@@ -27,8 +29,23 @@ class User < ApplicationRecord
   #   end
   # end
 
-  validates :photo, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
-  validates :avatar, blob: { content_type: ['image/jpg', 'image/jpeg', 'image/png'], size_range: 1..3.megabytes }
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize_to_fit: [120, 120]).processed
+    else
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'default_profile.jpg'
+          )
+        ), 
+        filename: 'default_profile.jpg',
+        content_type: 'image/jpg'
+      )
+    end
+  end
+
+
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
@@ -71,22 +88,5 @@ class User < ApplicationRecord
                     tsearch: { prefix: true }
                   }
   private
-
-
-  def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize_to_fit: [120, 120]).processed
-    else
-      avatar.attach(
-        io: File.open(
-          Rails.root.join(
-            'app', 'assets', 'images', 'default_profile.jpg'
-          )
-        ), 
-        filename: 'default_profile.jpg',
-        content_type: 'image/jpg'
-      )
-    end
-  end
 
 end
