@@ -22,7 +22,9 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar.variant(resize_to_fit: [120, 120]).processed
     else
-      "/default_profile.jpg"
+      avatar.attach(io: File.open('app/assets/images/default_profile.jpg'),
+    filename: 'default_profile.jpg', content_type: 'image/jpg')
+      # "/default_profile.jpg"
     end
   end
 
