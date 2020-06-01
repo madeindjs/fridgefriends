@@ -30,7 +30,7 @@ class User < ApplicationRecord
   # end
 
   def avatar_thumbnail
-    if avatar.attached? && avatar.persisted?
+    if avatar.attached?
       avatar.variant(resize_to_fit: [120, 120]).processed
     else
       avatar.attach(
