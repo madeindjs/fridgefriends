@@ -30,7 +30,7 @@ class User < ApplicationRecord
   # end
 
   def avatar_thumbnail
-    if avatar.attached?
+    if avatar.attached? && avatar.persisted?
       avatar.variant(resize_to_fit: [120, 120]).processed
     else
       avatar.attach(
@@ -44,8 +44,6 @@ class User < ApplicationRecord
       )
     end
   end
-
-
 
   def friends
     relationships = Relationship.where("user_id = :id OR friend_id = :id", id: id).where(status: "accepted")
