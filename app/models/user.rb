@@ -31,7 +31,7 @@ class User < ApplicationRecord
 
   def avatar_thumbnail
     if avatar.attached?
-      avatar.variant(resize_to_fit: [120, 120]).processed
+      avatar.variant(resize_to_fit: [120, 120], format: 'jpg').processed
     else
       avatar.attach(
         io: File.open(
