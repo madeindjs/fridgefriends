@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "5.1.1",
+    "activestorage": "^5.2.4-3",
     "bootstrap": "^4.5.0",
     "flatpickr": "^4.6.3",
     "jquery": "^3.5.1",
