@@ -1,11 +1,4 @@
 class Profile < ApplicationRecord
-    def avatar_thumbnail
-        if avatar.attached?
-          avatar.variant(resize: "150x150!").processed
-        else
-          "/default_profile.jpg"
-        end
-    end
     
     def resource_name
         :user

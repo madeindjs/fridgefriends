@@ -21,7 +21,6 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'image_processing', '~> 1.2'
-gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem "aws-sdk-s3", require: false
 gem 'pg_search'
 
