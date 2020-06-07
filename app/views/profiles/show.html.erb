@@ -8,10 +8,9 @@
         <%# <%= cl_image_tag(@user.avatar, height: 150, width: 150, crop: :fill, gravity: :face, class: "user-avatar") %>
         
         <div class="field">
-        <%= image_tag(current_user.avatar_thumbnail, class: "user-avatar")%>
-        
-      </div>
-
+          <%= image_tag(current_user.avatar_thumbnail, class: "user-avatar")%>
+          
+        </div>
 
         <p><%= @user.first_name %> <%= @user.last_name %></p>
       </div>

@@ -85,6 +85,13 @@ class User < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def avatar_url
+    if self.avatar.attachment
+      self.avatar.attachment.service_url
+    end
+  end
+
   private
     
     def add_default_avatar
