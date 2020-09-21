@@ -10,4 +10,8 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+  def profile_params
+    params.require(:profile).permit(:avatar, :photo)
+  end
 end
