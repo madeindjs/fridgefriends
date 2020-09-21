@@ -14,13 +14,13 @@
       <div class="col-12 card">
         <div class="card-avatar relationships">
           <div class="avatar">
-            <%= image_tag(relationship_request.user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+            <%= cl_image_tag(relationship_request.user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
           </div>
         </div>
         <div class="card-content">
           <div class="row-card-content" id="first-row">
             <div class="card-content-deadline" style="padding-top: 19px;">
-              <!-- <p><%#= image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
+              <!-- <p><%#= cl_image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
             </div>
           </div>
           <div class="row-card-content" id="second-row">
@@ -50,13 +50,13 @@
           <div class="col-12 card mb-2" style="padding-bottom: 60px;">
             <div class="card-avatar relationships">
               <div class="avatar">
-                <%= image_tag(friend.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                <%= cl_image_tag(friend.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
               </div>
             </div>
             <div class="card-content">
               <div class="row-card-content" id="first-row">
                 <div class="card-content-deadline" style="padding-top: 22px;">
-                <!-- <p><%#= image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
+                <!-- <p><%#= cl_image_tag "iconecard/horloge.svg" %>&nbsp;&nbsp;20/11/2019</p> -->
                 </div>
               </div>
               <div class="row-card-content" id="second-row">

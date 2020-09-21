@@ -17,22 +17,22 @@
    <%#= donation.categories %>
    <div class="card-content-category-search-1 <%= 'active' if @categories.include?('meat and fish') %>">
      <%= link_to donations_path(categories: @categories.include?('meat and fish') ? (@categories - ['meat and fish']) : (@categories + ['meat and fish'])) do %>
-       <%= image_tag "iconecard/meatfish-b.svg" %>
+       <%= cl_image_tag "iconecard/meatfish-b.svg" %>
      <% end %>
    </div>
    <div class="card-content-category-search-1 <%= 'active' if @categories.include?('drinks') %>">
      <%= link_to donations_path(categories: @categories.include?('drinks') ? (@categories - ['drinks']) : (@categories + ['drinks'])) do %>
-       <%= image_tag "iconecard/brevage-b.svg" %>
+       <%= cl_image_tag "iconecard/brevage-b.svg" %>
      <% end %>
    </div>
    <div class="card-content-category-search-1 <%= 'active' if @categories.include?('dairy and eggs') %>">
      <%= link_to donations_path(categories: @categories.include?('dairy and eggs') ? (@categories - ['dairy and eggs']) : (@categories + ['dairy and eggs'])) do %>
-      <%= image_tag "iconecard/dairies-b.svg" %>
+      <%= cl_image_tag "iconecard/dairies-b.svg" %>
      <% end %>
    </div>
    <div class="card-content-category-search-2 <%= 'active' if @categories.include?('fruits and vegetables') %>">
      <%= link_to donations_path(categories: @categories.include?('fruits and vegetables') ? (@categories - ['fruits and vegetables']) : (@categories + ['fruits and vegetables'])) do %>
-       <%= image_tag "iconecard/vegetables-b.svg" %>
+       <%= cl_image_tag "iconecard/vegetables-b.svg" %>
      <% end %>
    </div>
   </div>
@@ -46,7 +46,7 @@
             <div class="col-12 card spoiler-trigger <%= donation_card_class(donation.deadline) %>" data-toggle="collapse">
               <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
                 <div class="avatar">
-                  <%= image_tag(donation.giver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= cl_image_tag(donation.giver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
                 </div>
               </div>
               <div class="card-content">
@@ -59,7 +59,7 @@
                   </div>
                   <% if donation.pick_up %>
                     <div class="card-content-voiture">
-                      <%= image_tag "iconecard/car.svg" %>
+                      <%= cl_image_tag "iconecard/car.svg" %>
                     </div>
                   <% end %>
                 </div>
@@ -71,10 +71,10 @@
                   </div>
                   <div class="card-content-categories">
                     <%# = donation.categories %>
-                    <div class="card-content-category <%= 'active' if donation.categories.include?('meat and fish') %>"><%= image_tag "iconecard/meatfish.svg" %></div>
-                    <div class="card-content-category <%= 'active' if donation.categories.include?('drinks') %>"><%= image_tag "iconecard/brevage.svg" %></div>
-                    <div class="card-content-category <%= 'active' if donation.categories.include?('dairy and eggs') %>"><%= image_tag "iconecard/dairies.svg"%></div>
-                    <div class="card-content-category <%= 'active' if donation.categories.include?('fruits and vegetables') %>"><%= image_tag "iconecard/vegetables.svg"%></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('meat and fish') %>"><%= cl_image_tag "iconecard/meatfish.svg" %></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('drinks') %>"><%= cl_image_tag "iconecard/brevage.svg" %></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('dairy and eggs') %>"><%= cl_image_tag "iconecard/dairies.svg"%></div>
+                    <div class="card-content-category <%= 'active' if donation.categories.include?('fruits and vegetables') %>"><%= cl_image_tag "iconecard/vegetables.svg"%></div>
                   </div>
                 </div>
               </div>
@@ -89,10 +89,10 @@
                   </div>
                   <%if donation.photo.present? %>
                     <div class ="accordeon-image p-2">
-                      <%# <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                      <%# <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                       <%# les lignes du dessous sont des test et celle du dessus original de 2019 %>
-                      <%# <%= image_tag (donation.photo.variant(resize: "107x114!", crop: :fill).processed) %>
-                      <%= image_tag donation.photo.variant(resize: "107x114!").processed %> 
+                      <%# <%= cl_image_tag (donation.photo.variant(resize: "107x114!", crop: :fill).processed) %>
+                      <%= cl_image_tag donation.photo.variant(resize: "107x114!").processed %>
                     </div>
                   <% end %>
                 </div>

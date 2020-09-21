@@ -1,7 +1,7 @@
 <div class="card mt-2" style="min-width: auto;">
   <div class="card-avatar relationships">
     <div class="avatar">
-      <%= image_tag(user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+      <%= cl_image_tag(user.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
     </div>
   </div>
   <div class="card-content">

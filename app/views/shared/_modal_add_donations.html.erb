@@ -28,7 +28,7 @@
               <p>Photo du don  <%= f.file_field :photo, :label => "photo" %></p>
               <%# au dessou c'est les deux ligne original %>
               <%# <%= f.input :photo, input_html: { hidden: true }, label: '&nbsp;'.html_safe %>
-              <%# <%= f.input :photo_cache, as: :hidden %> 
+              <%# <%= f.input :photo_cache, as: :hidden %>
 
               Sélectionnez une ou plusieurs catégories
 
@@ -53,12 +53,12 @@
             <div class="modal-navbar-bottom">
               <div class="footer-element">
                 <%= link_to donations_path do %>
-                  <%= image_tag "iconefooter/home.svg" %>
+                  <%= cl_image_tag "iconefooter/home.svg" %>
                 <% end %>
               </div>
               <div class="footer-element">
                 <%= link_to receiver_donations_path do %>
-                  <%= image_tag "iconefooter/panier.svg" %>
+                  <%= cl_image_tag "iconefooter/panier.svg" %>
                 <% end %>
               </div>
               <div class="footer-element" >
@@ -66,12 +66,12 @@
               </div>
               <div class="footer-element">
                 <%= link_to(profile_path) do %>
-                  <%= image_tag "iconefooter/user.svg" %>
+                  <%= cl_image_tag "iconefooter/user.svg" %>
                 <% end %>
               </div>
               <div class="footer-element">
                 <%= link_to relationships_path do %>
-                  <%= image_tag "iconefooter/contact.svg" %>
+                  <%= cl_image_tag "iconefooter/contact.svg" %>
                 <% end %>
               </div>
             </div>

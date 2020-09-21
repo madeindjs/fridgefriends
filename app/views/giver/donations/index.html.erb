@@ -15,7 +15,7 @@
     <% if @donations.empty? %>
       <div class="text-center">
         <h3>N'hésite pas à donner ! Clique sur l'icône "+" pour créer un don</h3>
-        <%= image_tag "iconefooter/signeplus.svg", data: { toggle: "modal", target: "#donationNewModal" } %>
+        <%= cl_image_tag "iconefooter/signeplus.svg", data: { toggle: "modal", target: "#donationNewModal" } %>
       </div>
     <% else %>
     <% @donations.each do |donation| %>
@@ -25,11 +25,11 @@
             <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
               <div class="avatar" style="background-color: #FAFAFA">
                 <% if donation.status == "chosen" %>
-                  <%= image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% elsif donation.status == "confirmed" %>
-                  <%= image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= cl_image_tag(donation.receiver.avatar, height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% else donation.status == "pending" %>
-                  <%= image_tag("iconecard/panier-sad.svg", height: 64, width: 64, crop: :fill, gravity: :face) %>
+                  <%= cl_image_tag("iconecard/panier-sad.svg", height: 64, width: 64, crop: :fill, gravity: :face) %>
                 <% end %>
               </div>
             </div>
@@ -44,7 +44,7 @@
                 </div>
                   <% if donation.pick_up %>
                     <div class="card-content-voiture">
-                      <%= image_tag "iconecard/car.svg" %>
+                      <%= cl_image_tag "iconecard/car.svg" %>
                     </div>
                   <% end %>
               </div>
@@ -79,9 +79,9 @@
                 </div>
                 <% if donation.photo.present? %>
                   <div class ="accordeon-image p-2">
-                    <%# <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                    <%# <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                     <%# au dessus la ligne original en dessou la variant pour active storage %>
-                    <%= image_tag donation.photo.variant(resize: "107x114!").processed %>
+                    <%= cl_image_tag donation.photo.variant(resize: "107x114!").processed %>
                   </div>
                 <% end %>
               </div>
@@ -92,7 +92,7 @@
                 </div>
                 <%#if donation.photo.present? %>
                   <div class ="accordeon-image col-5">
-                    <%#= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                    <%#= cl_cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                   </div>
                 <#% end %>
               </div> -->

@@ -14,7 +14,7 @@
             <div class="col-12 card spoiler-trigger" data-toggle="collapse">
               <div class="card-avatar <%= donation_bg_class(donation.deadline) %>">
                 <div class="avatar">
-                  <%= image_tag(donation.giver.avatar, height: 64, width: 64, gravity: :face, crop: :fill) %>
+                  <%= cl_image_tag(donation.giver.avatar, height: 64, width: 64, gravity: :face, crop: :fill) %>
                 </div>
               </div>
               <div class="card-content">
@@ -27,7 +27,7 @@
                   </div>
                   <% if donation.pick_up %>
                     <div class="card-content-voiture">
-                      <%= image_tag "iconecard/car.svg" %>
+                      <%= cl_image_tag "iconecard/car.svg" %>
                     </div>
                   <% end %>
                 </div>
@@ -43,7 +43,7 @@
                   <div class="card-content-categories">
                     <div>
                     <% if donation.status == "confirmed" %>
-                        <%= image_tag "iconecard/green_validate_fat.svg" %>
+                        <%= cl_image_tag "iconecard/green_validate_fat.svg" %>
                     <% end %>
                     </div>
                   </div>
@@ -57,7 +57,7 @@
                         </div>
                           <%if donation.photo.present? %>
                             <div class ="accordeon-image p-2">
-                              <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                              <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                             </div>
                           <% end %>
                         </div>
