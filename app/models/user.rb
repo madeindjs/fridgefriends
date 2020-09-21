@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :address, presence: true
   
+  # definition avatar pour active storage
   def avatar_thumbnail
     if avatar.attached?
       avatar.variant(resize: "120x120!").processed
