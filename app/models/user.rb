@@ -78,6 +78,7 @@ class User < ApplicationRecord
     !deleted_at ? super : :deleted_account
   end
 
+  # Attention ici il faudra surement changer par `include PgSearch::Model`
   include PgSearch
 
   pg_search_scope :search,
