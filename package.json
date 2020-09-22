@@ -10,7 +10,7 @@
     "node": "^13.10.1",
     "popper.js": "^1.16.1",
     "puma": "^4.0.0",
-    "serialize-javascript": "^2.1.2",
+    "serialize-javascript": "^3.1.0",
     "webpack": "^4.42.0"
   },
   "devDependencies": {
