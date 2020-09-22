@@ -57,7 +57,7 @@
                         </div>
                           <%if donation.photo.present? %>
                             <div class ="accordeon-image p-2">
-                              <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
+                              <%= cl_image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                             </div>
                           <% end %>
                         </div>

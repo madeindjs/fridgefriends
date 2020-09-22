@@ -81,7 +81,7 @@
                   <div class ="accordeon-image p-2">
                     <%# <%= image_tag(donation.photo, height: 107, width: 114, crop: :fill) %>
                     <%# au dessus la ligne original en dessou la variant pour active storage %>
-                    <%= image_tag donation.photo.variant(resize: "107x114!").processed %>
+                    <%= cl_image_tag donation.photo.variant(resize: "107x114!").processed %>
                   </div>
                 <% end %>
               </div>

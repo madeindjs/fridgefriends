@@ -11,7 +11,8 @@
   <label class="avatar-user">
     <span style="display:none;">
       <p>Photo de profil</p>  
-        <%= f.file_field :avatar, :label => "avatar" %>
+        <%#= f.file_field :avatar, :label => "avatar" %>
+        <%= f.input :avatar, as: :file %>
     </span>
   </label>
   
